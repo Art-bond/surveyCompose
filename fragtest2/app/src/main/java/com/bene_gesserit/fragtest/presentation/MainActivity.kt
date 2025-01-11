@@ -1,24 +1,33 @@
-package com.bene_gesserit.fragtest
+package com.bene_gesserit.fragtest.presentation
 
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.bene_gesserit.fragtest.BlankFragment_1
+import com.bene_gesserit.fragtest.BlankFragment_2
+import com.bene_gesserit.fragtest.BlankFragment_3
+import com.bene_gesserit.fragtest.BlankFragment_4
+import com.bene_gesserit.fragtest.BlankFragment_5
+import com.bene_gesserit.fragtest.BlankFragment_6
+import com.bene_gesserit.fragtest.BlankFragment_7
+import com.bene_gesserit.fragtest.DataViewModel
+import com.bene_gesserit.fragtest.R
+import com.bene_gesserit.fragtest.STATE
 import com.bene_gesserit.fragtest.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private val dataModel: DataModel by viewModels()
+    private val dataModel: DataViewModel by viewModels()
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        manageFragments()
-        getData()
+        setContent {
+            SurveyScreen(dataModel)
+        }
     }
 
     private fun getData() {
@@ -41,19 +50,28 @@ class MainActivity : AppCompatActivity() {
 
             when (it) {
                 STATE.BLANK_FRAGMENT_1 -> {
-                    openFragment(R.id.frame, BlankFragment_1.newInstance())
+                   // openFragment(R.id.frame, BlankFragment_1.newInstance())
                 }
                 STATE.BLANK_FRAGMENT_2 -> {
                     openFragment(R.id.frame, BlankFragment_2.newInstance())
                 }
                 STATE.BLANK_FRAGMENT_3 -> {
-                    openFragment(R.id.frame, BlankFragment_3.newInstance(dataModel.report.value!!.id))
+                    openFragment(
+                        R.id.frame,
+                        BlankFragment_3.newInstance(dataModel.report.value!!.id)
+                    )
                 }
                 STATE.BLANK_FRAGMENT_4 -> {
-                    openFragment(R.id.frame, BlankFragment_4.newInstance(dataModel.report.value!!.name))
+                    openFragment(
+                        R.id.frame,
+                        BlankFragment_4.newInstance(dataModel.report.value!!.name)
+                    )
                 }
                 STATE.BLANK_FRAGMENT_5 -> {
-                    openFragment(R.id.frame, BlankFragment_5.newInstance(dataModel.report.value!!.isMale))
+                    openFragment(
+                        R.id.frame,
+                        BlankFragment_5.newInstance(dataModel.report.value!!.isMale)
+                    )
                 }
                 STATE.BLANK_FRAGMENT_6 -> {
                     openFragment(R.id.frame, BlankFragment_6.newInstance())

@@ -11,7 +11,7 @@ import com.bene_gesserit.fragtest.databinding.FragmentBlank2Binding
 
 class BlankFragment_2 : Fragment() {
 
-    private val dataModel: DataModel by activityViewModels()
+    private val dataModel: DataViewModel by activityViewModels()
     lateinit var binding: FragmentBlank2Binding
 
     override fun onCreateView(

@@ -14,7 +14,7 @@ class BlankFragment_5 : Fragment() {
 
     private var isMale: Boolean? = null
 
-    private val dataModel: DataModel by activityViewModels()
+    private val dataModel: DataViewModel by activityViewModels()
     lateinit var binding: FragmentBlank5Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {

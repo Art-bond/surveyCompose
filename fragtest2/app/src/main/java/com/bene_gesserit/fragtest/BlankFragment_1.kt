@@ -10,7 +10,7 @@ import com.bene_gesserit.fragtest.databinding.FragmentBlank1Binding
 
 class BlankFragment_1 : Fragment() {
 
-    private val dataModel: DataModel by activityViewModels()
+    private val dataModel: DataViewModel by activityViewModels()
     lateinit var binding: FragmentBlank1Binding
 
     override fun onCreateView(

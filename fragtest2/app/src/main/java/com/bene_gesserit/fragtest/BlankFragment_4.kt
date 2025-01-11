@@ -15,7 +15,7 @@ class BlankFragment_4 : Fragment() {
 
     private var name: String? = null
 
-    private val dataModel: DataModel by activityViewModels()
+    private val dataModel: DataViewModel by activityViewModels()
     lateinit var binding: FragmentBlank4Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {

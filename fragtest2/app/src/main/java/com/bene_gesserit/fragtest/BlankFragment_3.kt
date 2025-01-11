@@ -15,7 +15,7 @@ class BlankFragment_3 : Fragment() {
 
     private var id: Int? = null
 
-    private val dataModel: DataModel by activityViewModels()
+    private val dataModel: DataViewModel by activityViewModels()
     lateinit var binding: FragmentBlank3Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
